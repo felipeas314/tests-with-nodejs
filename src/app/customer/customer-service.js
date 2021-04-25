@@ -3,13 +3,13 @@ const Response = require('../dto/Response');
 
 async function createCustomer(customer) {
 
-    try {
-        let response = new Response();
-        console.log(response);
+    // try {
+    //     let response = new Response();
+    //     console.log(response);
 
-    } catch (Err) {
-        console.log(Err);
-    }
+    // } catch (Err) {
+    //     console.log(Err);
+    // }
 
     const customerCreated = await Customer.create(customer);
 

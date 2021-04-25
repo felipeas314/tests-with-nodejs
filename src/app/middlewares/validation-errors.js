@@ -1,5 +1,4 @@
 module.exports = (err, req, res, next) => {
-
     if(err && !err.errors)
       res.status(500).json({
         message: "Ocorreu um erro inesperado, entre em contato com o suporte",
