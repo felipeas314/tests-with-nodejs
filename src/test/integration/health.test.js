@@ -1,10 +1,10 @@
 const request = require('supertest');
 
-const { server } = require('../../server');
-const URL_BASE = '/api/v1'
-let s = null;
-
 describe('HEALTH', () => {
+
+    const { server } = require('../../server');
+    const URL_BASE = '/api/v1'
+    let s = null;
 
     beforeAll(async () => {
         s = await server();

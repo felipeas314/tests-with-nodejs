@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var { Schema } = mongoose;
+
+const { getConnection } = require('../database/mongoose');
 
 const customerSchema = new Schema({
     name: {
@@ -10,10 +12,15 @@ const customerSchema = new Schema({
     email: {
         type: String,
         require: true
+    },
+
+    cpf: {
+        type: String,
+        require: true
     }
 })
 
-const customer = mongoose.model('Customer', customerSchema);
+const customer = getConnection().model('Customer', customerSchema);
 
 module.exports = customer;
 

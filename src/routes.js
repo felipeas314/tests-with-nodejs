@@ -7,9 +7,11 @@ const routes = async () => {
         const routes = new Router();
 
         const { health } = require('./health');
+        const { createCustomerController } = require('./app/customer/customer-controller');
 
         routes.get('/health', health);
-        console.log('qwer');
+        
+        routes.post('/customer',createCustomerController)
 
         resolve(routes);
     });
