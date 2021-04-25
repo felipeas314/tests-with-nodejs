@@ -1,6 +1,6 @@
 const request = require('supertest');
 
-const server = require('../../../init');
+const server = require('../../init');
 
 describe('/customer', () => {
 

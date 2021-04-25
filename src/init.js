@@ -1,10 +1,8 @@
-const server = require('./src/config/express');
+const { server } = require('./server');
 
-const mongoose = require('./src/config/mongoose')();
+const init = async () => {
+    const s = await server();
+    s.listen(3000);
+}
 
-server.listen(3000,() => {
-    console.log('UP!!!');
-})
-
-
-module.exports = server;
+init();
