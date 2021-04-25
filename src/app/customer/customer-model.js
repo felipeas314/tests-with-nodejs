@@ -11,12 +11,12 @@ const customerSchema = new Schema({
 
     email: {
         type: String,
-        require: true
+        required: true
     },
 
     cpf: {
         type: String,
-        require: true
+        required: true
     }
 })
 

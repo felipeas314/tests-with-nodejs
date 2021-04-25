@@ -1,6 +1,6 @@
 const { Router } = require('express');
-
-
+const asyncHandler = require('express-async-handler')
+const validationErrorsMiddleware = require('./app/middlewares/validation-errors');
 
 const routes = async () => {
     return new Promise((resolve, reject) => {
@@ -11,7 +11,9 @@ const routes = async () => {
 
         routes.get('/health', health);
         
-        routes.post('/customer',createCustomerController)
+        routes.post('/customer',asyncHandler(createCustomerController));
+
+        routes.use(validationErrorsMiddleware);
 
         resolve(routes);
     });
