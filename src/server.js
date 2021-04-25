@@ -1,16 +1,24 @@
 const express = require('express');
 
 const { createConnectionMongoose } = require('./app/database/mongoose');
+const { routes } = require('./routes');
+
 
 async function server() {
     return new Promise(async (resolve, reject) => {
-        const s = express();
+        try {
+            const s = express();
 
-        await createConnectionMongoose();
+            await createConnectionMongoose();
 
-        s.use(express.json());
+            const r = await routes();
+            s.use(express.json());
+            s.use('/api/v1', r);
 
-        return s;
+            resolve(s);
+        } catch (err) {
+            reject(err);
+        }
     });
 }
 
